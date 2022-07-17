@@ -1,32 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>Hello</title>
-      <link href="/2022/07/15/hello-world/"/>
-      <url>/2022/07/15/hello-world/</url>
-      
-        <content type="html"><![CDATA[<div class="post-note note-info"><p>你好，我是你大爷</p></div>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>Hello</title>
+    <url>/2022/07/15/hello-world/</url>
+    <content><![CDATA[<div class="post-note note-info"><p>你好，我是你大爷</p></div>
+
+
+
+
+]]></content>
       <categories>
-          
-          <category> 测试 </category>
-          
+        <category>测试</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 测试 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
 </search>

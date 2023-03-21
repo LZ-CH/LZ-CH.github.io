@@ -17,7 +17,7 @@
   <entry>
     <title>【论文笔记】Prompting Large Language Models with Answer Heuristics for Knowledge-based Visual Question Answering</title>
     <url>/2023/03/21/%E3%80%90%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%E3%80%91Prompting-Large-Language-Models-with-Answer-Heuristics-for-Knowledge-based-Visual-Question-Answering/</url>
-    <content><![CDATA[<blockquote>
+    <content><![CDATA[<h2 id="论文简介及效果"><a href="#论文简介及效果" class="headerlink" title="论文简介及效果"></a>论文简介及效果</h2><blockquote>
 <p>OK-VQA: 61.1%</p>
 <p>A-OKVQA: 55.7%</p>
 </blockquote>

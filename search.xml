@@ -1,32 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>YaYa</title>
-      <link href="/2023/03/20/YaYa/"/>
-      <url>/2023/03/20/YaYa/</url>
-      
-        <content type="html"><![CDATA[<div class="post-note note-info"><p><strong>你好呀，我亲爱的雅雅!</strong></p></div><p><img src="/2023/03/20/YaYa/image-20230320115514758.png" alt="img" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/2023/03/20/YaYa/image-20230320115514758.png" class="lozad post-image"></p>]]></content>
-      
-      
+<search>
+  <entry>
+    <title>YaYa</title>
+    <url>/2023/03/20/YaYa/</url>
+    <content><![CDATA[<div class="post-note note-info"><p><strong>你好呀，我亲爱的雅雅!</strong></p></div>
+
+<p><img src="/2023/03/20/YaYa/image-20230320115514758.png" alt="img" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/2023/03/20/YaYa/image-20230320115514758.png" class="lozad post-image"></p>
+]]></content>
       <categories>
-          
-          <category> 可爱 </category>
-          
+        <category>可爱</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> 聪慧 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>聪慧</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【论文笔记】Prompting Large Language Models with Answer Heuristics for Knowledge-based Visual Question Answering</title>
+    <url>/2023/03/21/%E3%80%90%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%E3%80%91Prompting-Large-Language-Models-with-Answer-Heuristics-for-Knowledge-based-Visual-Question-Answering/</url>
+    <content><![CDATA[<blockquote>
+<p>OK-VQA: 61.1%</p>
+<p>A-OKVQA: 55.7%</p>
+</blockquote>
+<p>该论文提出一个 Prophet模型，借助GPT-3的外部知识，通过用启发式答案提示 GPT-3来实现基于外部知识的VQA任务。</p>
+<h2 id="论文出发点"><a href="#论文出发点" class="headerlink" title="论文出发点"></a>论文出发点</h2><p>现有直接对VQA模型补充外部知识输入的方法有以下问题:</p>
+<ol>
+<li>补充的外部知识并不能很好的涵盖图像所需要的信息</li>
+<li>GPT-3对few-shot learning比较敏感，上下文样本需要比较重要的选择，所有示例选择策略的性能都远低于使用根据真实答案相似性进行挑选策略</li>
+</ol>
+<h2 id="方法介绍"><a href="#方法介绍" class="headerlink" title="方法介绍"></a>方法介绍</h2><p><img src="/2023/03/21/%E3%80%90%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%E3%80%91Prompting-Large-Language-Models-with-Answer-Heuristics-for-Knowledge-based-Visual-Question-Answering/image-20230321105140607.png" alt="image-20230321105140607" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/2023/03/21/%E3%80%90%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%E3%80%91Prompting-Large-Language-Models-with-Answer-Heuristics-for-Knowledge-based-Visual-Question-Answering/image-20230321105140607.png" class="lozad post-image"></p>
+<blockquote>
+<p>宏观来看，是将VQA模型调到GPT-3前面，让GPT-3来输出答案</p>
+</blockquote>
+<p><img src="/2023/03/21/%E3%80%90%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%E3%80%91Prompting-Large-Language-Models-with-Answer-Heuristics-for-Knowledge-based-Visual-Question-Answering/image-20230321105506005.png" alt="image-20230321105506005" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/2023/03/21/%E3%80%90%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%E3%80%91Prompting-Large-Language-Models-with-Answer-Heuristics-for-Knowledge-based-Visual-Question-Answering/image-20230321105506005.png" class="lozad post-image"></p>
+<p>模型方法步骤如下:</p>
+<ol>
+<li>直接先训练一个VQA模型</li>
+<li>根据VQA模型的<strong>VQ融合特征</strong>从训练集中选择最相邻的Top-N样本，来为GPT-3提供prompt</li>
+<li>采用以下的prompt模板来模板化信息</li>
+</ol>
+<p><img src="/2023/03/21/%E3%80%90%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%E3%80%91Prompting-Large-Language-Models-with-Answer-Heuristics-for-Knowledge-based-Visual-Question-Answering/image-20230321110049770.png" alt="image-20230321110049770" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/2023/03/21/%E3%80%90%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%E3%80%91Prompting-Large-Language-Models-with-Answer-Heuristics-for-Knowledge-based-Visual-Question-Answering/image-20230321110049770.png" class="lozad post-image"></p>
+<ol start="4">
+<li>进行T次步骤3，并集成T次的GPT-3输出得到结果</li>
+</ol>
+<h2 id="实验分析"><a href="#实验分析" class="headerlink" title="实验分析"></a>实验分析</h2><ol>
+<li>提成答案候选数——&gt;提成答案命中率——&gt;准确率上升</li>
+</ol>
+<p><img src="/2023/03/21/%E3%80%90%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%E3%80%91Prompting-Large-Language-Models-with-Answer-Heuristics-for-Knowledge-based-Visual-Question-Answering/image-20230321110416959.png" alt="image-20230321110416959" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/2023/03/21/%E3%80%90%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%E3%80%91Prompting-Large-Language-Models-with-Answer-Heuristics-for-Knowledge-based-Visual-Question-Answering/image-20230321110416959.png" class="lozad post-image"></p>
+<ol start="2">
+<li>上下文样本挑选方式的对比: 命中率上升，准确率上升</li>
+</ol>
+<p><img src="/2023/03/21/%E3%80%90%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%E3%80%91Prompting-Large-Language-Models-with-Answer-Heuristics-for-Knowledge-based-Visual-Question-Answering/image-20230321110614508.png" alt="image-20230321110614508" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/2023/03/21/%E3%80%90%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%E3%80%91Prompting-Large-Language-Models-with-Answer-Heuristics-for-Knowledge-based-Visual-Question-Answering/image-20230321110614508.png" class="lozad post-image"></p>
+<ol start="3">
+<li>Prompt的内容比较，发现有置信度的答案候选，能让模型提升显著</li>
+</ol>
+<p><img src="/2023/03/21/%E3%80%90%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%E3%80%91Prompting-Large-Language-Models-with-Answer-Heuristics-for-Knowledge-based-Visual-Question-Answering/image-20230321110804580.png" alt="image-20230321110804580" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/2023/03/21/%E3%80%90%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%E3%80%91Prompting-Large-Language-Models-with-Answer-Heuristics-for-Knowledge-based-Visual-Question-Answering/image-20230321110804580.png" class="lozad post-image"></p>
+<h2 id="个人评价"><a href="#个人评价" class="headerlink" title="个人评价"></a>个人评价</h2><ol>
+<li>该模型单独用GPT-3作为外部知识来源，一是昂贵(虽然作者说很亲民了，但是依旧得多次调用api)，二是外部知识无法更新(也许这只是在静态数据集上刷准确率，因此没考虑知识更新)。</li>
+<li>总的来看，prompt的答案命中率上升能带来最终准确率的上升。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Visual-Language</category>
+      </categories>
+      <tags>
+        <tag>CVPR2023</tag>
+      </tags>
+  </entry>
 </search>
